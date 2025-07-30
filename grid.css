@@ -1,0 +1,502 @@
+/* =================================================================
+   CSS GRID DEMONSTRATION STYLES
+   =================================================================
+   This file contains only CSS Grid-specific styles for educational
+   purposes. Common styles are imported from common.css
+   ================================================================= */
+
+@import url('common.css');
+
+/* =================================================================
+   GRID-SPECIFIC THEME
+   ================================================================= */
+
+/* Grid Theme Header */
+.header {
+    background: linear-gradient(135deg, var(--untdf-dark) 0%, var(--untdf-color) 100%);
+}
+
+/* Grid Navigation - Uses Grid for educational purposes */
+.nav-list {
+    display: grid; /* GRID: Using grid for navigation layout */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* GRID: Responsive columns */
+    gap: 1rem; /* GRID: Consistent spacing */
+    justify-items: center; /* GRID: Center items within their grid areas */
+}
+
+/* =================================================================
+   GRID CONTAINERS - EDUCATIONAL DEMONSTRATIONS
+   ================================================================= */
+
+/* Basic Grid Container */
+.grid-container {
+    display: grid; /* GRID: The magic starts here - creates a grid container */
+    background: var(--primary-light);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    gap: 1rem; /* GRID: Shorthand for row-gap and column-gap */
+}
+
+/* Grid Items */
+.grid-item {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    /* GRID: Using flexbox within grid items for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+/* =================================================================
+   GRID TEMPLATE DEMONSTRATIONS
+   ================================================================= */
+
+/* Basic Grid with Explicit Columns and Rows */
+.basic-grid {
+    grid-template-columns: repeat(3, 1fr); /* GRID: 3 equal columns */
+    grid-template-rows: repeat(2, 80px); /* GRID: 2 rows, 80px each */
+}
+
+/* Column Sizes - Different Unit Types */
+.column-sizes {
+    /* GRID: Demonstrating different sizing units */
+    grid-template-columns: auto 1fr 2fr 100px min-content max-content;
+    grid-template-rows: 80px;
+}
+
+/* =================================================================
+   GRID TEMPLATE AREAS - SEMANTIC LAYOUT
+   ================================================================= */
+
+/* Grid Areas - Named Template Areas */
+.grid-areas {
+    /* GRID: Named areas for semantic layout */
+    grid-template-areas: 
+        "header header header header"
+        "nav main main sidebar"
+        "nav main main sidebar"
+        "footer footer footer footer";
+    grid-template-columns: 1fr 2fr 2fr 1fr; /* GRID: Proportional columns */
+    grid-template-rows: 80px 1fr 1fr 60px; /* GRID: Mixed row sizes */
+    min-height: 300px;
+}
+
+/* Grid Area Assignments */
+.area-header {
+    grid-area: header; /* GRID: Assign to named area */
+    background: var(--primary-color);
+}
+
+.area-nav {
+    grid-area: nav; /* GRID: Assign to named area */
+    background: var(--primary-color);
+}
+
+.area-main {
+    grid-area: main; /* GRID: Assign to named area */
+    background: var(--primary-color);
+}
+
+.area-sidebar {
+    grid-area: sidebar; /* GRID: Assign to named area */
+    background: var(--primary-color);
+}
+
+.area-footer {
+    grid-area: footer; /* GRID: Assign to named area */
+    background: var(--primary-color);
+}
+
+/* =================================================================
+   GRID GAP DEMONSTRATIONS
+   ================================================================= */
+
+/* Grid Gap Demo */
+.grid-gap {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 80px);
+    gap: 2rem; /* GRID: Large gap for visual demonstration */
+}
+
+/* =================================================================
+   GRID ITEM SPANNING
+   ================================================================= */
+
+/* Grid Span Demo */
+.grid-span {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 80px);
+}
+
+.span-item {
+    grid-column: span 2; /* GRID: Span across 2 columns */
+    background: var(--primary-color);
+}
+
+.tall-span {
+    grid-row: span 2; /* GRID: Span across 2 rows */
+    background: var(--primary-color);
+}
+
+/* =================================================================
+   AUTO-FIT AND AUTO-FILL DEMONSTRATIONS
+   ================================================================= */
+
+/* Auto-Fit - Items stretch to fill available space */
+.auto-fit {
+    /* GRID: auto-fit collapses empty tracks */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Auto-Fill - Maintains minimum size, creates empty tracks */
+.auto-fill {
+    /* GRID: auto-fill maintains empty tracks */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+/* =================================================================
+   COMPLEX GRID LAYOUTS - PRACTICAL EXAMPLES
+   ================================================================= */
+
+/* Complex Layout using Grid Template Areas */
+.complex-layout {
+    display: grid; /* GRID: Main container */
+    grid-template-areas: 
+        "header header header"
+        "nav main sidebar"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px; /* GRID: Fixed-fluid-fixed layout */
+    grid-template-rows: auto 1fr auto; /* GRID: Header/footer auto, content flexible */
+    gap: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.complex-header {
+    grid-area: header; /* GRID: Assign to header area */
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.complex-nav {
+    grid-area: nav; /* GRID: Assign to navigation area */
+    background: var(--primary-light);
+    padding: 1rem;
+}
+
+.complex-nav ul {
+    list-style: none;
+}
+
+.complex-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.complex-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    display: block;
+    border-radius: 5px;
+}
+
+.complex-main {
+    grid-area: main; /* GRID: Assign to main content area */
+    background: var(--surface);
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.complex-sidebar {
+    grid-area: sidebar; /* GRID: Assign to sidebar area */
+    background: var(--primary-light);
+    padding: 1rem;
+}
+
+.complex-sidebar ul {
+    list-style: none;
+}
+
+.complex-sidebar li {
+    background: var(--surface);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.complex-footer {
+    grid-area: footer; /* GRID: Assign to footer area */
+    background: var(--text-primary);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =================================================================
+   GRID GALLERY - ADVANCED LAYOUT
+   ================================================================= */
+
+/* Responsive Gallery using Grid */
+.gallery {
+    display: grid; /* GRID: Gallery container */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* GRID: Responsive columns */
+    gap: 1rem;
+    grid-auto-rows: 200px; /* GRID: Consistent row height */
+}
+
+.gallery-item {
+    background: var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-large {
+    grid-column: span 2; /* GRID: Span 2 columns */
+    grid-row: span 2; /* GRID: Span 2 rows */
+}
+
+.gallery-wide {
+    grid-column: span 2; /* GRID: Span 2 columns only */
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+}
+
+/* =================================================================
+   GRID CARD LAYOUT - PRACTICAL EXAMPLE
+   ================================================================= */
+
+/* Card Grid using auto-fit */
+.card-grid {
+    display: grid; /* GRID: Card container */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* GRID: Responsive card layout */
+    gap: 1.5rem;
+}
+
+/* =================================================================
+   GRID RESPONSIVE BEHAVIOR - EDUCATIONAL DEMONSTRATIONS
+   ================================================================= */
+
+/* Mobile Phones (320px - 767px) */
+@media (max-width: 767px) {
+    /* GRID: Navigation becomes 2 columns on mobile */
+    .nav-list {
+        grid-template-columns: repeat(2, 1fr); /* GRID: Reduce to 2 columns */
+        gap: 0.5rem;
+    }
+    
+    /* GRID: Simplify grids for mobile - all become single column */
+    .basic-grid {
+        grid-template-columns: 1fr; /* GRID: Single column layout */
+        grid-template-rows: repeat(6, 60px);
+    }
+    
+    .column-sizes {
+        grid-template-columns: 1fr; /* GRID: Single column for mobile */
+        grid-template-rows: repeat(6, 60px);
+    }
+    
+    /* GRID: Grid areas stack vertically on mobile */
+    .grid-areas {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer"; /* GRID: Vertical stacking */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+    
+    .grid-gap {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 60px);
+    }
+    
+    .grid-span {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 60px);
+    }
+    
+    /* GRID: Remove spanning on mobile */
+    .span-item,
+    .tall-span {
+        grid-column: span 1; /* GRID: No spanning on mobile */
+        grid-row: span 1;
+    }
+    
+    /* GRID: Complex layout becomes simple stack */
+    .complex-layout {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+    
+    /* GRID: Gallery becomes single column */
+    .gallery {
+        grid-template-columns: 1fr; /* GRID: Single column gallery */
+        grid-auto-rows: 150px;
+    }
+    
+    .gallery-large,
+    .gallery-wide {
+        grid-column: span 1; /* GRID: No spanning in mobile gallery */
+        grid-row: span 1;
+    }
+    
+    /* GRID: Card grid becomes single column */
+    .card-grid {
+        grid-template-columns: 1fr; /* GRID: Single column cards */
+        gap: 1rem;
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* GRID: Navigation gets 3 columns on tablets */
+    .nav-list {
+        grid-template-columns: repeat(3, 1fr); /* GRID: 3 columns for tablets */
+    }
+    
+    .basic-grid {
+        grid-template-columns: repeat(2, 1fr); /* GRID: 2 columns for tablets */
+        grid-template-rows: repeat(3, 70px);
+    }
+    
+    .column-sizes {
+        grid-template-columns: repeat(3, 1fr); /* GRID: Simplify for tablets */
+        grid-template-rows: repeat(2, 70px);
+    }
+    
+    /* GRID: Grid areas layout for tablets */
+    .grid-areas {
+        grid-template-areas: 
+            "header header header"
+            "nav main sidebar"
+            "footer footer footer";
+        grid-template-columns: 150px 1fr 150px; /* GRID: Smaller sidebars */
+    }
+    
+    .grid-gap {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 70px);
+    }
+    
+    .grid-span {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 70px);
+    }
+    
+    /* GRID: Complex layout for tablets */
+    .complex-layout {
+        grid-template-areas: 
+            "header header"
+            "nav main"
+            "sidebar main"
+            "footer footer";
+        grid-template-columns: 180px 1fr; /* GRID: Sidebar and main */
+        grid-template-rows: auto 1fr auto auto;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-auto-rows: 180px;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Laptops (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .nav-list {
+        grid-template-columns: repeat(5, 1fr); /* GRID: 5 columns for laptops */
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: 200px;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    .nav-list {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-auto-rows: 220px;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .complex-layout {
+        grid-template-columns: 250px 1fr 250px; /* GRID: Larger sidebars on desktop */
+    }
+}
+
+/* =================================================================
+   GRID INTERACTIVE ELEMENTS
+   ================================================================= */
+
+/* Grid items maintain consistent styling without hover effects */
+
+/* =================================================================
+   GRID PRINT STYLES
+   ================================================================= */
+
+@media print {
+    .grid-container {
+        border: 1px solid var(--text-primary);
+        background: none;
+    }
+    
+    .grid-item {
+        background: #f0f0f0;
+        color: black;
+        border: 1px solid var(--text-primary);
+    }
+}

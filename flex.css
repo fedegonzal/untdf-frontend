@@ -1,0 +1,265 @@
+/* =================================================================
+   FLEXBOX DEMONSTRATION STYLES
+   =================================================================
+   This file contains only Flexbox-specific styles for educational
+   purposes. Common styles are imported from common.css
+   ================================================================= */
+
+@import url('common.css');
+
+/* =================================================================
+   FLEXBOX-SPECIFIC THEME
+   ================================================================= */
+
+/* Flexbox Theme Header */
+.header {
+    background: linear-gradient(135deg, var(--untdf-dark) 0%, var(--untdf-color) 100%);
+}
+
+/* Flexbox Navigation - Uses Flex for educational purposes */
+.nav-list {
+    display: flex; /* FLEXBOX: Using flex for navigation layout */
+    justify-content: center; /* FLEXBOX: Center navigation items */
+    flex-wrap: wrap; /* FLEXBOX: Allow items to wrap on smaller screens */
+    gap: 1rem; /* FLEXBOX: Modern gap property for spacing */
+}
+
+/* =================================================================
+   FLEXBOX CONTAINERS - EDUCATIONAL DEMONSTRATIONS
+   ================================================================= */
+
+/* Basic Flexbox Container */
+.flex-container {
+    display: flex; /* FLEXBOX: The magic starts here - creates a flex container */
+    background: var(--primary-light);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    min-height: 80px;
+}
+
+/* Flexbox Items */
+.flex-item {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    margin: 0.25rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    min-width: 60px;
+    /* FLEXBOX: Using flex properties to center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =================================================================
+   FLEXBOX DIRECTION DEMONSTRATIONS
+   ================================================================= */
+
+/* Basic Flex with Gap */
+.basic-flex {
+    gap: 1rem; /* FLEXBOX: Modern gap property for spacing */
+}
+
+/* Flex Direction: Row (default) */
+.flex-row {
+    flex-direction: row; /* FLEXBOX: Items arranged horizontally */
+    gap: 0.5rem;
+}
+
+/* Flex Direction: Column */
+.flex-column {
+    flex-direction: column; /* FLEXBOX: Items arranged vertically */
+    max-width: 200px;
+    gap: 0.5rem;
+}
+
+/* =================================================================
+   FLEXBOX WRAPPING DEMONSTRATIONS
+   ================================================================= */
+
+/* Flex Wrap */
+.flex-wrap {
+    flex-wrap: wrap; /* FLEXBOX: Allow items to wrap to new lines */
+    gap: 0.5rem;
+}
+
+.flex-wrap .flex-item {
+    flex: 1 1 150px; /* FLEXBOX: grow=1, shrink=1, basis=150px */
+    min-width: 120px;
+}
+
+/* =================================================================
+   FLEXBOX JUSTIFY-CONTENT DEMONSTRATIONS
+   ================================================================= */
+
+/* Justify Content: Space Between */
+.justify-between {
+    justify-content: space-between; /* FLEXBOX: Equal space between items */
+}
+
+/* Justify Content: Space Around */
+.justify-around {
+    justify-content: space-around; /* FLEXBOX: Equal space around items */
+}
+
+/* Justify Content: Center */
+.justify-center {
+    justify-content: center; /* FLEXBOX: Center items horizontally */
+    gap: 1rem;
+}
+
+/* =================================================================
+   FLEXBOX ALIGN-ITEMS DEMONSTRATIONS
+   ================================================================= */
+
+/* Align Items Demo */
+.align-demo {
+    align-items: center; /* FLEXBOX: Center items vertically */
+    min-height: 120px;
+    gap: 1rem;
+}
+
+.tall-item {
+    height: 80px;
+}
+
+/* =================================================================
+   FLEXBOX CARD LAYOUT - PRACTICAL EXAMPLE
+   ================================================================= */
+
+/* Card Container using Flexbox */
+.card-container {
+    display: flex; /* FLEXBOX: Container for responsive cards */
+    flex-wrap: wrap; /* FLEXBOX: Allow cards to wrap */
+    gap: 1.5rem; /* FLEXBOX: Consistent spacing between cards */
+    margin-top: 1rem;
+}
+
+.card {
+    /* FLEXBOX: Each card can grow and shrink, with min width of 250px */
+    flex: 1 1 250px; /* grow=1, shrink=1, basis=250px */
+}
+
+/* =================================================================
+   FLEXBOX RESPONSIVE BEHAVIOR - EDUCATIONAL DEMONSTRATIONS
+   ================================================================= */
+
+/* Mobile Phones (320px - 767px) */
+@media (max-width: 767px) {
+    /* FLEXBOX: Navigation becomes vertical stack on mobile */
+    .nav-list {
+        flex-direction: column; /* FLEXBOX: Stack navigation vertically */
+        align-items: center; /* FLEXBOX: Center navigation items */
+        gap: 0.5rem;
+    }
+    
+    /* FLEXBOX: Force all flex containers to column layout on mobile */
+    .flex-container {
+        flex-direction: column; /* FLEXBOX: Stack items vertically */
+        gap: 0.5rem;
+    }
+    
+    .flex-row {
+        flex-direction: column; /* FLEXBOX: Even row containers become columns */
+    }
+    
+    .flex-column {
+        max-width: none; /* Remove width restriction */
+    }
+    
+    /* FLEXBOX: Override justify-content for mobile readability */
+    .justify-between,
+    .justify-around,
+    .justify-center {
+        flex-direction: column; /* FLEXBOX: Stack vertically for better mobile UX */
+    }
+    
+    /* FLEXBOX: Card container becomes single column */
+    .card-container {
+        flex-direction: column; /* FLEXBOX: Stack cards vertically */
+        gap: 1rem;
+    }
+    
+    .card {
+        flex: none; /* FLEXBOX: Remove flex properties for mobile */
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* FLEXBOX: Navigation can wrap but stays horizontal */
+    .nav-list {
+        flex-wrap: wrap; /* FLEXBOX: Allow wrapping if needed */
+        justify-content: center; /* FLEXBOX: Keep items centered */
+    }
+    
+    .flex-wrap .flex-item {
+        flex: 1 1 120px; /* FLEXBOX: Smaller basis for tablet screens */
+    }
+    
+    .card-container {
+        gap: 1rem;
+    }
+    
+    .card {
+        flex: 1 1 calc(50% - 0.5rem); /* FLEXBOX: Two cards per row */
+        min-width: 200px;
+    }
+    
+    /* FLEXBOX: Restore horizontal layout on tablets */
+    .justify-between,
+    .justify-around,
+    .justify-center {
+        flex-direction: row; /* FLEXBOX: Back to horizontal */
+    }
+    
+    .flex-row {
+        flex-direction: row; /* FLEXBOX: Maintain row direction */
+    }
+}
+
+/* Laptops (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .card-container {
+        gap: 1.5rem;
+    }
+    
+    .card {
+        flex: 1 1 calc(33.333% - 1rem); /* FLEXBOX: Three cards per row */
+        min-width: 250px;
+    }
+    
+    .nav-list {
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    .card-container {
+        gap: 2rem;
+    }
+    
+    .card {
+        flex: 1 1 calc(25% - 1.5rem); /* FLEXBOX: Four cards per row */
+        min-width: 250px;
+    }
+    
+    .nav-list {
+        gap: 2rem;
+    }
+    
+    .flex-container {
+        padding: 1.5rem;
+    }
+}
+
+/* =================================================================
+   FLEXBOX INTERACTIVE ELEMENTS
+   ================================================================= */
+
+/* Flex items maintain consistent styling without hover effects */

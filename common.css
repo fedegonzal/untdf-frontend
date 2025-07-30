@@ -1,0 +1,229 @@
+/* =================================================================
+   COMMON STYLES FOR FLEXBOX AND GRID DEMONSTRATIONS
+   =================================================================
+   This file contains all shared styles that are not specific to 
+   the educational goals of demonstrating Flexbox or Grid layouts.
+   ================================================================= */
+
+/* =================================================================
+   SHARED COLOR VARIABLES
+   ================================================================= */
+:root {
+    /* Colors */
+    --primary-color: #2c3036;      
+    --primary-light: #e1e1e1;      
+    --primary-dark: #282e3f;       
+
+    --text-primary: #1f2937;       
+    --text-secondary: #6b7280;     
+
+    --background: #f9fafb;         
+    --surface: #ffffff;            
+    --border: #e5e7eb;
+    
+    --untdf-dark: #770c09;
+    --untdf-color: #ae0a0b;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+/* Header Styles */
+.header {
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Navigation Base Styles */
+.nav {
+    background: var(--surface);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 1rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+
+/* Main Content */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section {
+    background: var(--surface);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.section h3 {
+    color: var(--primary-dark);
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+/* Card Base Styles */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-primary);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN - SHARED BREAKPOINTS
+   ================================================================= */
+
+/* Mobile Phones (320px - 767px) */
+@media (max-width: 767px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+}
+
+/* Laptops (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .header h1 {
+        font-size: 2.3rem;
+    }
+    
+    .section {
+        padding: 2rem;
+    }
+}
+
+/* Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .main {
+        max-width: 1400px;
+    }
+    
+    .section {
+        padding: 2.5rem;
+    }
+}
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+@media print {
+    .nav,
+    .footer {
+        display: none;
+    }
+    
+    .section {
+        box-shadow: none;
+        border: 1px solid var(--border);
+        page-break-inside: avoid;
+    }
+    
+    .header {
+        background: none !important;
+        color: black !important;
+    }
+}
