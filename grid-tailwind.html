@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNTDF | Grid - Responsive Layout (Tailwind CSS)</title>
+    <script type="module" src="style.css"></script>
+</head>
+<body class="font-sans leading-relaxed text-gray-800 bg-gray-50">
+    <!-- Header with gradient background matching UNTDF colors -->
+    <header class="bg-gradient-to-br from-red-900 to-red-700 text-white text-center py-8 px-4 mb-8">
+        <h1 class="text-2xl md:text-4xl font-bold mb-2">Grid Layout - UNTDF</h1>
+        <p class="text-base md:text-lg opacity-90 max-w-4xl mx-auto">
+            Este es un ejemplo de diferentes layouts utilizando Grid con Tailwind CSS, desarrollado por la Universidad Nacional de Tierra del Fuego para los alumnos de las carreras de Informática y Sistemas. Los layouts presentados son responsive y se recomienda navegarlos con el inspector del browser emulando diferentes dispositivos: teléfonos, tablets, notebooks y escritorio.
+        </p>
+    </header>
+
+    <!-- Navigation using Grid -->
+    <nav class="bg-white shadow-md mb-8 sticky top-0 z-50">
+        <!-- TAILWIND: Grid navigation - always shows grid layout -->
+        <ul class="grid grid-cols-5 gap-2 sm:gap-4 p-4 list-none place-items-center">
+            <li><a href="#basic" class="text-gray-700 hover:text-red-700 px-2 sm:px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center text-xs sm:text-base">Basic Grid</a></li>
+            <li><a href="#areas" class="text-gray-700 hover:text-red-700 px-2 sm:px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center text-xs sm:text-base">Grid Areas</a></li>
+            <li><a href="#responsive" class="text-gray-700 hover:text-red-700 px-2 sm:px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center text-xs sm:text-base">Responsive</a></li>
+            <li><a href="#complex" class="text-gray-700 hover:text-red-700 px-2 sm:px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center text-xs sm:text-base">Complex Layout</a></li>
+            <li><a href="#gallery" class="text-gray-700 hover:text-red-700 px-2 sm:px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center text-xs sm:text-base">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4">
+        <!-- Basic Grid Section -->
+        <section id="basic" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Basic Grid Container</h2>
+            <!-- TAILWIND: grid creates grid container, always shows 3 columns, 2 rows -->
+            <div class="grid grid-cols-3 grid-rows-2 gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4">
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 1</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 2</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 3</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 4</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 5</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 6</div>
+            </div>
+        </section>
+
+        <!-- Different Column Sizes Section -->
+        <section class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Grid with Different Column Sizes</h2>
+            <!-- TAILWIND: Custom grid with mixed column sizes - responsive but always horizontal -->
+            <div class="grid grid-cols-6 sm:grid-cols-[auto_1fr_2fr_100px_min-content_max-content] gap-2 sm:gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4">
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">Auto</div>
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">1fr</div>
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">2fr</div>
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">100px</div>
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">Min</div>
+                <div class="bg-gray-600 text-white p-2 sm:p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16 text-xs sm:text-base">Max</div>
+            </div>
+        </section>
+
+        <!-- Grid Template Areas Section -->
+        <section id="areas" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Grid Template Areas</h2>
+            <!-- TAILWIND: Complex grid layout with named areas using custom CSS classes -->
+            <div class="grid gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-80 grid-areas-layout">
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center area-header">Header</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center area-nav">Navigation</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center area-main">Main Content</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center area-sidebar">Sidebar</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center area-footer">Footer</div>
+            </div>
+        </section>
+
+        <!-- Grid Gap Demonstration -->
+        <section class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Grid Gap Demonstration</h2>
+            <!-- TAILWIND: grid with large gap, always 3 columns 2 rows -->
+            <div class="grid grid-cols-3 grid-rows-2 gap-8 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4">
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">A</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">B</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">C</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">D</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">E</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">F</div>
+            </div>
+        </section>
+
+        <!-- Grid Item Spanning -->
+        <section class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Grid Item Spanning</h2>
+            <!-- TAILWIND: grid with spanning items - always 3 columns, auto rows -->
+            <div class="grid grid-cols-3 gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4">
+                <div class="col-span-2 bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Spans 2 columns</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Normal</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Normal</div>
+                <div class="row-span-2 bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-20">Spans 2 rows</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Normal</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Normal</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Normal</div>
+            </div>
+        </section>
+
+        <!-- Auto-Fit and Auto-Fill Section -->
+        <section id="responsive" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Auto-Fit and Auto-Fill</h2>
+            
+            <h3 class="text-gray-700 my-4 text-xl">Auto-Fit (items stretch to fill space)</h3>
+            <!-- TAILWIND: auto-fit grid using grid-cols-[repeat(auto-fit,minmax(150px,1fr))] -->
+            <div class="grid gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 auto-fit-grid">
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 1</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 2</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 3</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 4</div>
+            </div>
+            
+            <h3 class="text-gray-700 my-4 text-xl">Auto-Fill (maintains minimum size)</h3>
+            <!-- TAILWIND: auto-fill grid -->
+            <div class="grid gap-4 bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 auto-fill-grid">
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 1</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 2</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 3</div>
+                <div class="bg-gray-600 text-white p-4 rounded-md text-center font-bold flex items-center justify-center min-h-16">Item 4</div>
+            </div>
+        </section>
+
+        <!-- Complex Layout Example -->
+        <section id="complex" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Complex Layout Example</h2>
+            <!-- TAILWIND: Complex grid layout with named areas -->
+            <div class="grid gap-4 bg-gray-50 rounded-lg overflow-hidden min-h-96 complex-layout">
+                <header class="bg-gray-600 text-white p-4 flex items-center justify-center font-bold text-lg complex-header">Website Header</header>
+                <nav class="bg-gray-100 p-4 complex-nav">
+                    <ul class="list-none space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-800 p-2 block rounded transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-800 p-2 block rounded transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-800 p-2 block rounded transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-800 p-2 block rounded transition-colors">Contact</a></li>
+                    </ul>
+                </nav>
+                <main class="bg-white p-4 overflow-y-auto complex-main">
+                    <h3 class="text-xl font-semibold mb-4">Main Content Area</h3>
+                    <p class="mb-4">This is the main content area that takes up most of the space. It's designed to be responsive and adapts to different screen sizes using CSS Grid with Tailwind utilities.</p>
+                    <p>On mobile devices, this layout will stack vertically for better readability.</p>
+                </main>
+                <aside class="bg-gray-100 p-4 complex-sidebar">
+                    <h4 class="font-semibold mb-4">Sidebar</h4>
+                    <ul class="list-none space-y-2">
+                        <li class="bg-white p-2 rounded shadow-sm">Quick Link 1</li>
+                        <li class="bg-white p-2 rounded shadow-sm">Quick Link 2</li>
+                        <li class="bg-white p-2 rounded shadow-sm">Quick Link 3</li>
+                    </ul>
+                </aside>
+                <footer class="bg-gray-800 text-white p-4 flex items-center justify-center complex-footer">Website Footer - © 2025</footer>
+            </div>
+        </section>
+
+        <!-- Responsive Image Gallery -->
+        <section id="gallery" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Responsive Image Gallery</h2>
+            <!-- TAILWIND: Responsive gallery grid with auto-fit and proper heights -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr gallery-grid">
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative col-span-1 sm:col-span-2 row-span-1 sm:row-span-2 min-h-80">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Large Image</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 1</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 2</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 3</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 4</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative col-span-1 sm:col-span-2 min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Wide Image</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 5</div>
+                </div>
+                <div class="bg-gray-600 rounded-lg overflow-hidden relative min-h-40">
+                    <div class="w-full h-full flex items-center justify-center text-white font-bold bg-gradient-to-br from-gray-600 to-gray-800">Image 6</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Grid Layout -->
+        <section class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Card Grid Layout</h2>
+            <!-- TAILWIND: Responsive card grid using auto-fit -->
+            <div class="grid gap-6 card-grid">
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 1</h3>
+                    <p class="text-gray-600 leading-relaxed">This card demonstrates how CSS Grid with Tailwind can create perfect card layouts with consistent heights and spacing.</p>
+                </div>
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 2</h3>
+                    <p class="text-gray-600 leading-relaxed">Grid automatically handles the positioning and sizing of items, making it perfect for card-based designs with Tailwind utilities.</p>
+                </div>
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 3</h3>
+                    <p class="text-gray-600 leading-relaxed">The responsive nature of Grid means these cards will adapt beautifully to any screen size using Tailwind's responsive prefixes.</p>
+                </div>
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 4</h3>
+                    <p class="text-gray-600 leading-relaxed">You can easily control spacing, alignment, and sizing with just a few Tailwind CSS utility classes.</p>
+                </div>
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 5</h3>
+                    <p class="text-gray-600 leading-relaxed">Grid is perfect for both simple and complex layouts, offering unprecedented control over web design with Tailwind CSS.</p>
+                </div>
+                <div class="bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl font-semibold">Feature 6</h3>
+                    <p class="text-gray-600 leading-relaxed">From mobile-first to desktop-wide, Grid with Tailwind ensures your content looks great everywhere.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8 mt-12">
+        <p class="text-lg">Universidad Nacional de Tierra del Fuego - Desarrollado por el profesor Federico Gonzalez Brizzio</p>
+        <p class="text-sm mt-2 opacity-80">Versión Tailwind CSS - Demostrando CSS Grid con clases utilitarias</p>
+    </footer>
+
+    <!-- Custom CSS for complex grid layouts that require grid-template-areas -->
+    <style>
+        /* Grid template areas - not directly supported by Tailwind, using custom CSS */
+        .grid-areas-layout {
+            grid-template-areas: 
+                "header header header header"
+                "nav main main sidebar"
+                "nav main main sidebar"
+                "footer footer footer footer";
+            grid-template-columns: 1fr 2fr 2fr 1fr;
+            grid-template-rows: 80px 1fr 1fr 60px;
+        }
+        
+        .area-header { grid-area: header; }
+        .area-nav { grid-area: nav; }
+        .area-main { grid-area: main; }
+        .area-sidebar { grid-area: sidebar; }
+        .area-footer { grid-area: footer; }
+        
+        /* Complex layout areas */
+        .complex-layout {
+            grid-template-areas: 
+                "header header header"
+                "nav main sidebar"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+        }
+        
+        .complex-header { grid-area: header; }
+        .complex-nav { grid-area: nav; }
+        .complex-main { grid-area: main; }
+        .complex-sidebar { grid-area: sidebar; }
+        .complex-footer { grid-area: footer; }
+        
+        /* Auto-fit and auto-fill grids */
+        .auto-fit-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        
+        .auto-fill-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+        
+        /* Gallery grid */
+        .gallery-grid {
+            grid-auto-rows: minmax(200px, auto);
+        }
+        
+        .auto-rows-fr {
+            grid-auto-rows: 1fr;
+        }
+        
+        /* Card grid */
+        .card-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 767px) {
+            .grid-areas-layout {
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto auto;
+            }
+            
+            .complex-layout {
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto auto;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 150px;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Tablet responsive adjustments */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .grid-areas-layout {
+                grid-template-areas: 
+                    "header header header"
+                    "nav main sidebar"
+                    "footer footer footer";
+                grid-template-columns: 150px 1fr 150px;
+            }
+            
+            .complex-layout {
+                grid-template-areas: 
+                    "header header"
+                    "nav main"
+                    "sidebar main"
+                    "footer footer";
+                grid-template-columns: 180px 1fr;
+                grid-template-rows: auto 1fr auto auto;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                grid-auto-rows: 180px;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        /* Desktop responsive adjustments */
+        @media (min-width: 1440px) {
+            .complex-layout {
+                grid-template-columns: 250px 1fr 250px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                grid-auto-rows: 220px;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+    </style>
+</body>
+</html>

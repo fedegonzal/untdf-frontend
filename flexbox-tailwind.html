@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNTDF | Flexbox - Responsive Layout (Tailwind CSS)</title>
+    <script type="module" src="style.css"></script>
+</head>
+<body class="font-sans leading-relaxed text-gray-800 bg-gray-50">
+    <!-- Header with gradient background matching UNTDF colors -->
+    <header class="bg-gradient-to-br from-red-900 to-red-700 text-white text-center py-8 px-4 mb-8">
+        <h1 class="text-2xl md:text-4xl font-bold mb-2">Flexbox Layout - UNTDF</h1>
+        <p class="text-base md:text-lg opacity-90 max-w-4xl mx-auto">
+            Este es un ejemplo de diferentes layouts utilizando Flexbox, desarrollado por la Universidad Nacional de Tierra del Fuego para los alumnos de las carreras de Informática y Sistemas. Los layouts presentados son responsive y se recomienda navegarlos con el inspector del browser emulando diferentes dispositivos: teléfonos, tablets, notebooks y escritorio.
+        </p>
+    </header>
+
+    <!-- Sticky Navigation using Flexbox -->
+    <nav class="bg-white shadow-md mb-8 sticky top-0 z-50">
+        <!-- TAILWIND: Responsive flex navigation - column on mobile, wrap+center on larger screens -->
+        <ul class="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-2 sm:gap-4 lg:gap-6 p-4 list-none">
+            <li><a href="#basic" class="text-gray-700 hover:text-red-700 px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center">Basic Flex</a></li>
+            <li><a href="#direction" class="text-gray-700 hover:text-red-700 px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center">Direction</a></li>
+            <li><a href="#wrap" class="text-gray-700 hover:text-red-700 px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center">Wrap</a></li>
+            <li><a href="#justify" class="text-gray-700 hover:text-red-700 px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center">Justify</a></li>
+            <li><a href="#align" class="text-gray-700 hover:text-red-700 px-4 py-2 rounded-full font-medium transition-colors no-underline block text-center">Align</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto px-4">
+        <!-- Basic Flexbox Section -->
+        <section id="basic" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Basic Flexbox Container</h2>
+            <!-- TAILWIND: flex creates flex container, gap-4 adds modern spacing, responsive on mobile -->
+            <div class="flex flex-col sm:flex-row bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-4">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">Item 1</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">Item 2</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">Item 3</div>
+            </div>
+        </section>
+
+        <!-- Flex Direction Section -->
+        <section id="direction" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Flex Direction Examples</h2>
+            
+            <h3 class="text-gray-700 my-4 text-xl">Row (default)</h3>
+            <!-- TAILWIND: flex-row arranges items horizontally, responsive to stack on mobile -->
+            <div class="flex flex-col sm:flex-row bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-2">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">A</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">B</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">C</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">D</div>
+            </div>
+
+            <h3 class="text-gray-700 my-4 text-xl">Column</h3>
+            <!-- TAILWIND: flex-col arranges items vertically -->
+            <div class="flex flex-col bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 max-w-52 gap-2">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex items-center justify-center">A</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex items-center justify-center">B</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex items-center justify-center">C</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex items-center justify-center">D</div>
+            </div>
+        </section>
+
+        <!-- Flex Wrap Section -->
+        <section id="wrap" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Flex Wrap</h2>
+            <!-- TAILWIND: flex-wrap allows items to wrap to new lines -->
+            <div class="flex flex-wrap bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-2">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 1</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 2</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 3</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 4</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 5</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 6</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 7</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold flex-1 min-w-32 flex items-center justify-center">Item 8</div>
+            </div>
+        </section>
+
+        <!-- Justify Content Section -->
+        <section id="justify" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Justify Content</h2>
+            
+            <h3 class="text-gray-700 my-4 text-xl">Space Between</h3>
+            <!-- TAILWIND: justify-between distributes space evenly between items, responsive -->
+            <div class="flex flex-col sm:flex-row sm:justify-between bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-2">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">A</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">B</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">C</div>
+            </div>
+
+            <h3 class="text-gray-700 my-4 text-xl">Space Around</h3>
+            <!-- TAILWIND: justify-around distributes space around items, responsive -->
+            <div class="flex flex-col sm:flex-row sm:justify-around bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-2">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">A</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">B</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">C</div>
+            </div>
+
+            <h3 class="text-gray-700 my-4 text-xl">Center</h3>
+            <!-- TAILWIND: justify-center centers items horizontally, responsive -->
+            <div class="flex flex-col sm:flex-row sm:justify-center bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-20 gap-4">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">A</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">B</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">C</div>
+            </div>
+        </section>
+
+        <!-- Align Items Section -->
+        <section id="align" class="bg-white mb-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Align Items</h2>
+            <!-- TAILWIND: items-center aligns items vertically in the center -->
+            <div class="flex items-center bg-gray-100 border-2 border-gray-600 rounded-lg p-4 my-4 min-h-32 gap-4">
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold h-20 flex items-center justify-center">Tall Item</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">Normal</div>
+                <div class="bg-gray-600 text-white p-4 my-1 rounded-md text-center font-bold min-w-16 flex items-center justify-center">Normal</div>
+            </div>
+        </section>
+
+        <!-- Responsive Card Layout Section -->
+        <section class="bg-white mb-8 p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg">
+            <h2 class="text-gray-800 mb-6 text-3xl">Responsive Card Layout</h2>
+            <!-- TAILWIND: Responsive flex container with gap that adjusts card layout by breakpoint -->
+            <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 lg:gap-6 mt-4">
+                <div class="flex-1 sm:min-w-60 lg:min-w-64 bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl">Card 1</h3>
+                    <p class="text-gray-500 leading-relaxed">This is a flexible card that adapts to different screen sizes using flexbox properties.</p>
+                </div>
+                <div class="flex-1 sm:min-w-60 lg:min-w-64 bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl">Card 2</h3>
+                    <p class="text-gray-500 leading-relaxed">These cards will stack on mobile devices and spread horizontally on larger screens.</p>
+                </div>
+                <div class="flex-1 sm:min-w-60 lg:min-w-64 bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl">Card 3</h3>
+                    <p class="text-gray-500 leading-relaxed">Flexbox makes it easy to create responsive layouts without complex calculations.</p>
+                </div>
+                <div class="flex-1 sm:min-w-60 lg:min-w-64 bg-white border border-gray-300 rounded-lg p-6 shadow-md">
+                    <h3 class="text-gray-800 mb-4 text-xl">Card 4</h3>
+                    <p class="text-gray-500 leading-relaxed">The flex property controls how items grow and shrink within the container.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8 mt-12">
+        <p class="text-lg">Universidad Nacional de Tierra del Fuego - Desarrollado por el profesor Federico Gonzalez Brizzio</p>
+    </footer>
+</body>
+</html>
