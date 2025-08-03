@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos del Supermercado</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="bg-white min-h-screen py-8">
+    <div class="max-w-11/12 mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+            Productos del Supermercado
+        </h1>
+
+        <div id="lista-productos" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-8 gap-6">
+            <!-- aqui irán los productos dinámicamente usand o el Web Component ProductoItem -->
+        </div>
+    </div>
+
+    <!-- Importamos el web component -->
+    <script src="/components/ProductoItem.js"></script>
+
+    <!-- Cargamos los productos desde la API -->
+    <script>
+        fetch(`https://vibe-eccomerce-api.onrender.com/products/`, {
+            headers: {
+                'accept': 'application/json',
+                'Authorization': 'Bearer fedegonzal'
+            }
+        })
+        .then(res => res.json())
+        .then(products => renderProducts(products))
+        .catch(err => this.renderError(err));
+
+        function renderError(error) {
+            console.error('Error fetching product:', error);
+            document.querySelector('#lista-productos').innerHTML = `
+                <p class="text-red-500">Error al cargar los productos. Inténtalo de nuevo más tarde.</p>
+            `;
+        }
+
+        function renderProducts(products) {
+            const productsGrid = document.querySelector('#lista-productos');
+            productsGrid.innerHTML = ''; // Limpiamos el contenido existente, si hubiera
+
+            products.forEach(product => {
+                // Multiplicamos product.price x 1000 y le quitamos los decimales
+                product.price = Math.floor(product.price * 1000);
+
+                const productItem = document.createElement('producto-item');
+                productItem.setAttribute('title', product.title);
+                productItem.setAttribute('picture', `https://vibe-eccomerce-api.onrender.com${product.pictures[0]}`);
+                productItem.setAttribute('description', product.description);
+                productItem.setAttribute('price', product.price);
+                productsGrid.appendChild(productItem);
+            });
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
