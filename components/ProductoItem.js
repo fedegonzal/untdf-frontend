@@ -1,26 +1,38 @@
-class ProductoItem extends HTMLElement {
+import { LitElement, html, css } from 'lit';
+
+class ProductoItem extends LitElement {
+    static properties = {
+        title: { type: String },
+        picture: { type: String },
+        description: { type: String },
+        price: { type: Number }
+    };
+
     constructor() {
         super();
+        this.title = 'Título del Producto';
+        this.picture = 'https://via.placeholder.com/150';
+        this.description = 'Descripción del producto';
+        this.price = 0;
     }
 
-    connectedCallback() {
+    static styles = css`
+        @import '/style.css';
+    `;
+
+    createRenderRoot() {
+        return this;
+    }
+
+    render() {
         const product = {
-            title: this.getAttribute('title') || 'Título del Producto',
-            picture: this.getAttribute('picture') || 'https://via.placeholder.com/150',
-            description: this.getAttribute('description') || 'Descripción del producto',
-            price: parseFloat(this.getAttribute('price') || '0')
+            title: this.title,
+            picture: this.picture,
+            description: this.description,
+            price: this.price
         };
 
-        this.render(product);
-    }
-
-    render(product) {
-        console.log('Product data:', product);
-        this.innerHTML = `
-            <style>
-                @import '/style.css';
-            </style>
-
+        return html`
             <div class="max-w-96 shadow-lg bg-gray-100  h-full flex flex-col">
                 <img src="${product.picture}" alt="${product.title}" class="aspect-square w-full mix-blend-multiply brightness-110">
                 <div class="flex-1 p-3 bg-white flex flex-col justify-between">
@@ -33,14 +45,7 @@ class ProductoItem extends HTMLElement {
     }
 
     renderError(error) {
-        this.shadowRoot.innerHTML = `
-            <style>
-                @import '/src/style.css';
-                
-                :host {
-                    display: block;
-                }
-            </style>
+        return html`
             <div class="text-red-600 font-semibold">Error loading product: ${error.message}</div>
         `;
     }
