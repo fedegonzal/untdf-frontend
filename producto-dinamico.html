@@ -16,7 +16,7 @@
     <script src="/components/ProductoItem.js"></script>
 
     <script>
-        fetch(`https://vibe-eccomerce-api.onrender.com/products/2`, {
+        fetch(`http://161.35.104.211:8000/products/2`, {
             headers: {
                 'accept': 'application/json',
                 'Authorization': 'Bearer fedegonzal'
@@ -42,7 +42,7 @@
 
             const productItem = document.createElement('producto-item');
             productItem.setAttribute('title', product.title);
-            productItem.setAttribute('picture', `https://vibe-eccomerce-api.onrender.com${product.pictures[0]}`);
+            productItem.setAttribute('picture', `http://161.35.104.211:8000${product.pictures[0]}`);
             productItem.setAttribute('description', product.description);
             productItem.setAttribute('price', product.price);
             listProductos.appendChild(productItem);

@@ -52,7 +52,7 @@ class ProductosList extends LitElement {
                 return html`
                     <producto-item
                         title="${product.title}"
-                        picture="https://vibe-eccomerce-api.onrender.com${product.pictures[0]}"
+                        picture="http://161.35.104.211:8000${product.pictures[0]}"
                         description="${product.description}"
                         price="${price}">
                     </producto-item>
