@@ -130,11 +130,48 @@ function ProductForm({ product, onSubmit, onCancel }) {
         }
     };
 
-    const handleRemovePicture = (index) => {
-        setFormData(prev => ({
-            ...prev,
-            pictures: prev.pictures.filter((_, i) => i !== index)
-        }));
+    const handleRemovePicture = async (index) => {
+        if (!product || !product.id) {
+            // If product doesn't exist yet, just remove from local state
+            setFormData(prev => ({
+                ...prev,
+                pictures: prev.pictures.filter((_, i) => i !== index)
+            }));
+            return;
+        }
+
+        if (!window.confirm('¿Está seguro de eliminar esta imagen?')) {
+            return;
+        }
+
+        try {
+            const picturePath = formData.pictures[index];
+            
+            // Delete from server
+            const response = await fetch(`${API_URL}/products/${product.id}/pictures`, {
+                method: 'DELETE',
+                headers: {
+                    ...getAuthHeaders(),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ file_path: picturePath })
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al eliminar la imagen del servidor');
+            }
+
+            // Remove from local state after successful deletion
+            setFormData(prev => ({
+                ...prev,
+                pictures: prev.pictures.filter((_, i) => i !== index)
+            }));
+            
+            alert('Imagen eliminada exitosamente');
+        } catch (err) {
+            console.error('Delete error:', err);
+            alert(`Error al eliminar la imagen: ${err.message}`);
+        }
     };
 
     const handleSubmit = (e) => {
