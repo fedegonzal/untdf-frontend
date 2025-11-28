@@ -41,7 +41,7 @@ function ProductList() {
         }
 
         try {
-            const response = await fetch(`${API_URL}/products/${id}/`, {
+            const response = await fetch(`${API_URL}/products/${id}`, {
                 method: 'DELETE',
                 headers: getAuthHeaders()
             });

@@ -31,7 +31,7 @@ function ProductDetail() {
       setLoading(true);
       setError(null);
       
-      const response = await fetch(`${API_URL}/products/${id}/`, {
+      const response = await fetch(`${API_URL}/products/${id}`, {
         headers: {
           ...getAuthHeaders(),
           'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ function ProductDetail() {
       };
       
       // Update product with new rating
-      const response = await fetch(`${API_URL}/products/${id}/`, {
+      const response = await fetch(`${API_URL}/products/${id}`, {
         method: 'PUT',
         headers: {
           ...getAuthHeaders(),

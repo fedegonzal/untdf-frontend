@@ -22,7 +22,7 @@ function ProductFormPage() {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`${API_URL}/products/${id}/`, {
+            const response = await fetch(`${API_URL}/products/${id}`, {
                 headers: getAuthHeaders()
             });
 
@@ -42,7 +42,7 @@ function ProductFormPage() {
     const handleSubmit = async (productData) => {
         try {
             const url = isEditing
-                ? `${API_URL}/products/${id}/`
+                ? `${API_URL}/products/${id}`
                 : `${API_URL}/products/`;
 
             const method = isEditing ? 'PUT' : 'POST';

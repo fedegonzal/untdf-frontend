@@ -61,7 +61,7 @@ function ProductCRUD() {
 
     const handleUpdate = async (id, productData) => {
         try {
-            const response = await fetch(`${API_URL}/products/${id}/`, {
+            const response = await fetch(`${API_URL}/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     ...getAuthHeaders(),
@@ -89,7 +89,7 @@ function ProductCRUD() {
         }
 
         try {
-            const response = await fetch(`${API_URL}/products/${id}/`, {
+            const response = await fetch(`${API_URL}/products/${id}`, {
                 method: 'DELETE',
                 headers: getAuthHeaders()
             });
