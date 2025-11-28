@@ -32,7 +32,10 @@ function ProductDetail() {
       setError(null);
       
       const response = await fetch(`${API_URL}/products/${id}/`, {
-        headers: getAuthHeaders()
+        headers: {
+          ...getAuthHeaders(),
+          'Content-Type': 'application/json'
+        }
       });
       
       if (!response.ok) {
