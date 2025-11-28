@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
+import { API_URL, getAuthHeaders, getImageUrl } from '../config/api';
 
 // ProductList component - demonstrates State, Hooks, Fetch, and Lists
 function ProductList() {
@@ -20,11 +21,8 @@ function ProductList() {
       setLoading(true);
       setError(null);
       
-      const response = await fetch('http://161.35.104.211:8000/products/', {
-        headers: {
-          'accept': 'application/json',
-          'Authorization': 'Bearer fedegonzal'
-        }
+      const response = await fetch(`${API_URL}/products/`, {
+        headers: getAuthHeaders()
       });
       
       if (!response.ok) {
@@ -37,7 +35,7 @@ function ProductList() {
       const transformedProducts = data.map(product => ({
         ...product,
         price: Math.floor(product.price * 1000),
-        picture: `http://161.35.104.211:8000${product.pictures[0]}`
+        picture: getImageUrl(product.pictures[0])
       }));
       
       setProducts(transformedProducts);
